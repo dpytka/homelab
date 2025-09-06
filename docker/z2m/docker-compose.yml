@@ -3,8 +3,8 @@ services:
         container_name: zigbee2mqtt
         image: ghcr.io/koenkk/zigbee2mqtt
         restart: unless-stopped
-        # volumes:
-        #     - ./data:/app/data
+        volumes:
+            - /usr/share/zigbee2mqtt:/app/data
         #     - /run/udev:/run/udev:ro
         ports:
             # Frontend port
