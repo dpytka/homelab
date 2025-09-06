@@ -8,7 +8,7 @@ mqtt:
   server: mqtt://mqtt.daktyp.pl:1883
 serial:
 # Location of SLZB-06M
-  port: tcp://slzb-06m.daktyp.pl:6638
+  port: tcp://slzb06m.daktyp.pl:6638
   baudrate: 115200
   adapter: ember
 # Disable green led?
