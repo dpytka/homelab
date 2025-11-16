@@ -1,0 +1,20 @@
+services:
+  otbr:
+    image: openthread/border-router:latest
+    privileged: true
+    restart: always
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    environment:
+      OT_RCP_DEVICE: "spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=115200&uart-flow-control"
+      OT_INFRA_IF: "enp3s0"
+      OT_THREAD_IF: "wpan0"
+      OT_REST_LISTEN_ADDR: "0.0.0.0"
+      OT_REST_LISTEN_PORT: "8081"
+      OT_LOG_LEVEL: 7
+    devices:
+      - /dev/ttyACM0      
+      - /dev/net/tun
+    volumes:
+      - ./data/:/data/
