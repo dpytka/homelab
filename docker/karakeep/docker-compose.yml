@@ -6,12 +6,14 @@ services:
       - /usr/share/karakeep/data:/data
     ports:
       - 3010:3000
-    env_file:
-      - stack.env
     environment:
       MEILI_ADDR: http://meilisearch:7700
       BROWSER_WEB_URL: http://chrome:9222
-      # OPENAI_API_KEY: ...
+      KARAKEEP_VERSION: 0.32.0
+      NEXTAUTH_SECRET: super_random_string
+      MEILI_MASTER_KEY: another_random_string
+      NEXTAUTH_URL: http://localhost:3000
+      OPENAI_API_KEY: open_api_key
 
       # You almost never want to change the value of the DATA_DIR variable.
       # If you want to mount a custom directory, change the volume mapping above instead.
@@ -29,10 +31,11 @@ services:
   meilisearch:
     image: getmeili/meilisearch:v1.41.0
     restart: unless-stopped
-    env_file:
-      - stack.env
     environment:
       MEILI_NO_ANALYTICS: "true"
+      NEXTAUTH_SECRET: super_random_string
+      MEILI_MASTER_KEY: another_random_string
+      NEXTAUTH_URL: http://localhost:3000
     volumes:
       - /usr/share/karakeep/meilisearch:/meili_data
 
