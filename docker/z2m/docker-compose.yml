@@ -1,7 +1,7 @@
 services:
     zigbee2mqtt:
         container_name: zigbee2mqtt
-        image: ghcr.io/koenkk/zigbee2mqtt:2.11.0
+        image: ghcr.io/koenkk/zigbee2mqtt:2.12.0
         restart: unless-stopped
         volumes:
             - /usr/share/zigbee2mqtt:/app/data
