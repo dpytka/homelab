@@ -1,0 +1,11 @@
+services:
+  mikrodash:
+    image: ghcr.io/secops-7/mikrodash:0.7.35
+    restart: unless-stopped
+    ports:
+      - "3081:3081"
+    volumes:
+      - mikrodash-data:/data
+
+volumes:
+  mikrodash-data:
