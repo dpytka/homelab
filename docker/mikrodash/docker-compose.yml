@@ -1,6 +1,6 @@
 services:
   mikrodash:
-    image: ghcr.io/secops-7/mikrodash:0.8.78
+    image: ghcr.io/secops-7/mikrodash:0.8.87
     restart: unless-stopped
     ports:
       - "3081:3081"
